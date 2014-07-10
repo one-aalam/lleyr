@@ -7,8 +7,10 @@
  */
 
  var lleyr = require('../lib/lleyr');
-
- 	 lleyr.launch(process.argv.splice(2));
+/**
+ * Run the command-line client
+ */
+ 	 lleyr.launch(process.argv);
 
      
 
