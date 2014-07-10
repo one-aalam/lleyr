@@ -109,7 +109,7 @@ var Server = (function(){
 	});
 
 	// Task: Styles
-	gulp.task('styles', function(){
+	gulp.task('styles:sass', function(){
 		return gulp.src(pathSrc.styles)
 		     	   .pipe(_g.sass())
 				   .pipe(gulp.dest('build/css'));
@@ -126,11 +126,13 @@ var Server = (function(){
 	});
 
 	//Task: Images
-	gulp.task('images', function() {
+	gulp.task('images:min', function() {
 	 	return gulp.src(pathSrc.images)
 				.pipe(_g.imagemin({optimizationLevel: 5}))
 				.pipe(gulp.dest('build/img'));
 	});
+
+
 
 	// Task: Clean
 	gulp.task('flush', function(){
@@ -218,7 +220,7 @@ var Server = (function(){
 				console.log(err);
 			}).on('end', function(){
 				console.log(chalk.green('✔ Download complete!'));
-				console.log(chalk.grey('Cleaning up...'));
+				
 				copy(tmpFolder, process.cwd(), function(err){
 					if(err){
 						console.log(err);
