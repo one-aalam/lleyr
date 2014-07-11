@@ -31,7 +31,7 @@ var PORT_EXPRESS = 4000,
 	PATH_SRC   = 'client';
 
 
-
+// Kick to config.json
 var pathSrc = {
 			scripts: ['assets/js/**/*.coffee', '!client/external/**/*.coffee'],
 	
@@ -119,6 +119,7 @@ var Server = (function(){
 		return gulp.src(pathSrc.styles_sass)
 		     	   .pipe(g_sass())
 				   .pipe(gulp.dest(process.cwd() + '/build/css'));
+	});
 
 	gulp.task('styles:less', function(){
 		console.log('Lessing your piece of art...');
