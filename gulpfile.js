@@ -11,6 +11,8 @@ var gulp = require('gulp'),
 	
 	tmpFolder = '.temp',
 	
+	g_sass = require('gulp-sass'),
+	
 	
 	path = require('path'),
 	  lr = require('tiny-lr'),
@@ -31,10 +33,12 @@ var PORT_EXPRESS = 4000,
 
 
 var pathSrc = {
-			scripts: ['client/js/**/*.coffee', '!client/external/**/*.coffee'],
-			styles:['client/css/**/*.scss'], 
-			styles_less:['client/css/**/*.less'], 
-			styles_styl:['client/css/**/*.styl'],
+			scripts: ['assets/js/**/*.coffee', '!client/external/**/*.coffee'],
+	
+			styles_sass:['assets/sass/**/*.scss', 'assets/css/**/*.scss'], 
+			styles_less:['assets/less/**/*.less', 'assets/css/**/*.less'], 
+			styles_styl:['assets/styl/**/*.styl', 'assets/css/**/*.styl'],
+	
   			images: 'client/img/**/*',
 			html: ['*.html', 'client/**/*.html'],
 	
@@ -109,10 +113,10 @@ var Server = (function(){
 	});
 
 	// Task: Styles
-	gulp.task('styles', function(){
-		return gulp.src(pathSrc.styles)
-		     	   .pipe(_g.sass())
-				   .pipe(gulp.dest('build/css'));
+	gulp.task('styles', function(){ console.log('sassing..');
+		return gulp.src(pathSrc.styles_sass)
+		     	   .pipe(g_sass())
+				   .pipe(gulp.dest(process.cwd() + '/build/css'));
 	});
 	gulp.task('styles:less', function(){
 		return gulp.src(pathSrc.styles_less)
