@@ -20,3 +20,10 @@ d) Images - Optimisation, Sprite generation
 e) User based settings are expected in Lleyrfile.js
 f) Highly modular and Single Responsibility Principle
 g) Highly testable
+
+Good to have
+----------------------
+a) CSS stats
+b) JS stats
+c) Page speed insight
+d) Doctor
