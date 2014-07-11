@@ -11,6 +11,8 @@ var gulp = require('gulp'),
 	
 	tmpFolder = '.temp',
 	
+	tasks = require('./gulp'),
+	
 	g_sass = require('gulp-sass'),
 	
 	
@@ -80,7 +82,7 @@ var Server = (function(){
 		// Pass path information to LiveReload
 		// server in order to refresh those files
 		notify: function(event){
-			var file = path.relative(PATH_EXPRESS, event.path); console.log(file);
+			var file = path.relative(PATH_EXPRESS, event.path);
 				app_lr.changed({
 					body:{
 						files: [file]	
@@ -142,20 +144,7 @@ var Server = (function(){
 	});
 
 
-
-	// Task: Clean
-	gulp.task('flush', function(){
-		return gulp.src('build',{read: false})
-		           .pipe(_g.clean());
-	});
-	gulp.task('flush:cwd', function(){
-		return gulp.src(process.cwd() + '/**/*',{read: false})
-		           .pipe(clean({force: true}));
-	});
-	gulp.task('flush:temp', function(){
-		return gulp.src(tmpFolder,{read: false})
-		           .pipe(clean({force:true}));
-	});
+	
 
 
 
@@ -228,7 +217,7 @@ var Server = (function(){
 			}).on('error', function(err){
 				console.log(err);
 			}).on('end', function(){
-				console.log(chalk.green('✔ Download complete!'));
+				console.log(chalk.green('✔ Initialization complete!'));
 				
 				copy(tmpFolder, process.cwd(), function(err){
 					if(err){

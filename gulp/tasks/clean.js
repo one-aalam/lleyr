@@ -1,14 +1,9 @@
-	// I need...
-	var gulp  = require('gulp'),
-		clean = require('gulp-clean');
+var gulp = require('gulp');
 
-	var tmpFolder = '.temp';
-
-	//module.exports = require('require-dir')();
-
+	// Task: Clean
 	gulp.task('flush', function(){
 		return gulp.src('build',{read: false})
-		           .pipe(clean());
+		           .pipe(_g.clean());
 	});
 	gulp.task('flush:cwd', function(){
 		return gulp.src(process.cwd() + '/**/*',{read: false})
@@ -18,5 +13,3 @@
 		return gulp.src(tmpFolder,{read: false})
 		           .pipe(clean({force:true}));
 	});
-
-
