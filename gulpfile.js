@@ -59,6 +59,11 @@ var Server = (function(){
 			app_xp.use(xp.query());
 			app_xp.use(c_lr());
 			app_xp.use(xp.static(PATH_EXPRESS));
+			//app_xp.set('view engine', 'jade');
+			//app_xp.set('views', __dirname);
+			app_xp.get('/', function(req, res){
+				res.sendfile('index.html');
+			});
 		    app_xp.listen(PORT_EXPRESS, function(){
 				gutl.log('Express: => ' + PORT_EXPRESS);
 			});
@@ -232,7 +237,7 @@ var Server = (function(){
 	});
 
 	function finalize(){
-		
+		gulp.start('serve');
 	}
 
 	//@TODO
