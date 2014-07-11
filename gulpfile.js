@@ -113,28 +113,34 @@ var Server = (function(){
 	});
 
 	// Task: Styles
-	gulp.task('styles', function(){ console.log('sassing..');
+
+	gulp.task('styles', function(){ 
+		console.log('Sassing your piece of art...');
 		return gulp.src(pathSrc.styles_sass)
 		     	   .pipe(g_sass())
 				   .pipe(gulp.dest(process.cwd() + '/build/css'));
-	});
+
 	gulp.task('styles:less', function(){
+		console.log('Lessing your piece of art...');
 		return gulp.src(pathSrc.styles_less)
 		     	   .pipe(_g.less())
 				   .pipe(gulp.dest('build/css'));
 	});
 	gulp.task('styles:styl', function(){
+		console.log('Stylusing your piece of art...');
 		return gulp.src(pathSrc.styles_styl)
 		     	   .pipe(_g.stylus({errors: true}))
 				   .pipe(gulp.dest('build/css'));
 	});
 
 	//Task: Images
-	gulp.task('images', function() {
+	gulp.task('images:min', function() {
 	 	return gulp.src(pathSrc.images)
 				.pipe(_g.imagemin({optimizationLevel: 5}))
 				.pipe(gulp.dest('build/img'));
 	});
+
+
 
 	// Task: Clean
 	gulp.task('flush', function(){
@@ -222,7 +228,7 @@ var Server = (function(){
 				console.log(err);
 			}).on('end', function(){
 				console.log(chalk.green('✔ Download complete!'));
-				console.log(chalk.grey('Cleaning up...'));
+				
 				copy(tmpFolder, process.cwd(), function(err){
 					if(err){
 						console.log(err);
