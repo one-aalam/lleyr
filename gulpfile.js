@@ -22,6 +22,18 @@ var gulp = require('gulp'),
 	c_lr = require('connect-livereload')
 
  wiredep = require('wiredep').stream;
+/*
+
+// Allows gulp --dev to be run for a more verbose output
+var isProduction = true;
+var sassStyle = 'compressed';
+var sourceMap = false;
+
+if(gutil.env.dev === true) {
+	sassStyle = 'expanded';
+	sourceMap = true;
+	isProduction = false;
+}*/
 
 var PORT_EXPRESS = 4000,
 	PORT_LR      = 35729,
