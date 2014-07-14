@@ -30,8 +30,8 @@ var appFiles = {
 	sass: [paths.styles.src + '**/*.scss', paths.styles.src_sass + '**/*.scss'],
 	less: [paths.styles.src + '**/*.less', paths.styles.src_less + '**/*.less'],
 	styl: [paths.styles.src + '**/*.styl', paths.styles.src_styl + '**/*.styl'],
-	
-	coffee: [paths.scripts.src + '**/*.coffee']
+	coffee: [paths.scripts.src + '**/*.coffee'],
+	scripts: [paths.scripts.src + '**/*.js']
 };
 
 var vendorFiles = {
