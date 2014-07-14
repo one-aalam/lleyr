@@ -57,6 +57,6 @@ var isProduction = false;
 				   .pipe(gulp.dest(config.paths.styles.dest));
 	});*/
 
-	gulp.task('css',['styles:sass'], function(){
+	gulp.task('styles',['styles:sass'], function(){
 		console.log('Styled...Totally!');
 	});

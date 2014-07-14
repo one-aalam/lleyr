@@ -1,6 +1,6 @@
 // load gulp
 var gulp = require('gulp'),
-	gutil = require('gulp-util'),
+	gutl = require('gulp-util'),
 	ghdown = require('github-download'),
 	rimraf = require('rimraf'),
 	run_in_sequence = require('run-sequence'),
@@ -10,6 +10,8 @@ var gulp = require('gulp'),
 	// Tasks
 	tasks = require('./gulp'),
 	// Server
+	config = require('./gulp/config'),
+	//
 	path = require('path'),
 	  lr = require('tiny-lr'),
 	  xp = require('express'),
@@ -44,7 +46,6 @@ var pathSrc = {
 			styles_styl:['assets/styl/**/*.styl', 'assets/css/**/*.styl'],
 	
   			images: 'client/img/**/*',
-			html: ['*.html', 'client/**/*.html'],
 	
 			styles_dep: ['client/components/**/*.css'],
 			script_dep: ['client/components/**/*.js']
@@ -99,27 +100,6 @@ var Server = (function(){
 	};
 	
 })();
-
-	// Task: Default
-	gulp.task('default', function(){
-		Server.start();
-		gutl.log(gutl.colors.cyan("See, I can run without params..."));
-		
-		// Watch .html files
-        gulp.watch(pathSrc.html);
-
-        // Watch .scss files
-        gulp.watch(pathSrc.styles, ['styles']);
-
-        // Watch .js files
-        gulp.watch(pathSrc.scripts, ['scripts']);
-
-        // Watch image files
-        gulp.watch(pathSrc.images, ['images']);
-	});
-
-	// clean, lint, sass, script, watch 
-
 
 
 	// Task: Server start

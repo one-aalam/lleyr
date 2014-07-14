@@ -31,7 +31,8 @@ var appFiles = {
 	less: [paths.styles.src + '**/*.less', paths.styles.src_less + '**/*.less'],
 	styl: [paths.styles.src + '**/*.styl', paths.styles.src_styl + '**/*.styl'],
 	coffee: [paths.scripts.src + '**/*.coffee'],
-	scripts: [paths.scripts.src + '**/*.js']
+	scripts: [paths.scripts.src + '**/*.js'],
+	html: [process.cwd() + '*.html', basePaths.src + '**/*.html']
 };
 
 var vendorFiles = {

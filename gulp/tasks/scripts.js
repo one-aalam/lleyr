@@ -13,7 +13,7 @@ var isProduction = true;
 	
 // Task: Scripts
 gulp.task('scripts', function(){
-		return gulp.src([config.src.coffee, config.src.scripts])
+		return gulp.src(config.src.coffee) //, config.src.scripts
 		   		   .pipe(coffee())
 				   .pipe(concat('app.js'))
 				   .pipe(gulp.dest(config.paths.scripts.dest))

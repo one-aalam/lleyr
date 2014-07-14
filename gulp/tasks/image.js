@@ -1,13 +1,20 @@
 var gulp  = require('gulp'),
 	clean = require('gulp-clean'),
+	imagemin = require('gulp-imagemin'),
 	config = require('../config');
 
-/*
 	gulp.task('images:min', function() {
-	 	return gulp.src(pathSrc.images)
-				.pipe(_g.imagemin({optimizationLevel: 5}))
-				.pipe(gulp.dest('build/img'));
-	});*/
+	 	return gulp.src(config.paths.images.src)
+				.pipe(imagemin({optimizationLevel: 5}))
+				.pipe(gulp.dest(config.paths.images.dest));
+	});
+
+	gulp.task('images',['images:min'], function(){
+		console.log('Optimizing images');
+	});
+
+/*
+	*/
 
 /*
 	Sprite Generator
