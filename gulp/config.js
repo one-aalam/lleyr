@@ -16,6 +16,8 @@ var paths = {
 	styles: {
 		src: basePaths.src + 'css/',
 		src_sass: basePaths.src + 'sass/',
+		src_less: basePaths.src + 'less/',
+		src_styl: basePaths.src + 'styl/',
 		dest: basePaths.dest + 'css/min/'
 	},
 	sprite: {
@@ -24,8 +26,11 @@ var paths = {
 };
 
 var appFiles = {
-	styles: [paths.styles.src + '**/*.scss'],
-	scripts: [paths.scripts.src + '**/*.coffee']
+	sass: [paths.styles.src + '**/*.scss', paths.styles.src_sass + '**/*.scss' ],
+	less: [paths.styles.src + '**/*.less', paths.styles.src_less + '**/*.scss'],
+	styl: [paths.styles.src + '**/*.styl', paths.styles.src_styl + '**/*.scss'],
+	
+	coffee: [paths.scripts.src + '**/*.coffee']
 };
 
 var vendorFiles = {

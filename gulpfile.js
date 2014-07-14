@@ -131,28 +131,7 @@ var Server = (function(){
 				   .on('error', gutl.log);
 	});
 
-	// Task: Styles
-
-	gulp.task('styles', function(){ 
-		console.log('Sassing your piece of art...');
-		return gulp.src(pathSrc.styles_sass)
-		     	   .pipe(g_sass())
-				   .pipe(gulp.dest(process.cwd() + '/build/css'));
-	});
-
-	gulp.task('styles:less', function(){
-		console.log('Lessing your piece of art...');
-		return gulp.src(pathSrc.styles_less)
-		     	   .pipe(_g.less())
-				   .pipe(gulp.dest('build/css'));
-	});
-	gulp.task('styles:styl', function(){
-		console.log('Stylusing your piece of art...');
-		return gulp.src(pathSrc.styles_styl)
-		     	   .pipe(_g.stylus({errors: true}))
-				   .pipe(gulp.dest('build/css'));
-	});
-
+	
 	//Task: Images
 	gulp.task('images:min', function() {
 	 	return gulp.src(pathSrc.images)
