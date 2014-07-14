@@ -1,4 +1,4 @@
-Lleyr
+Lleyr (In development)
 ==========================
 Quickly build your front-end genius. 
 
@@ -8,7 +8,7 @@ Quickly build your front-end genius.
 Once installed, use `lleyr init` to initialize a project in an existing directory or
 `lleyr create [folder/project]` to set it up in a new directory.
 
-For example, to a initialize a new project with the default SASS[lleyr-sass](https://github/one-aalam/lleyr-sass),
+For example, to a initialize a new project with the default SASS [lleyr-sass](https://github.com/one-aalam/lleyr-sass),
 make sure `lleyr` is installed:
 
 ```bash
