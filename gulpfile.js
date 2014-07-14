@@ -1,21 +1,15 @@
 // load gulp
 var gulp = require('gulp'),
-	gutl = require('gulp-util'),
+	gutil = require('gulp-util'),
 	ghdown = require('github-download'),
 	rimraf = require('rimraf'),
 	run_in_sequence = require('run-sequence'),
 	clean = require('gulp-clean'),
 	chalk = require('chalk'),
 	copy = require('ncp').ncp, 
-	 // _g = require('gulp-load-plugins')(),
-	
-	tmpFolder = '.temp',
-	
+	// Tasks
 	tasks = require('./gulp'),
-	
-	g_sass = require('gulp-sass'),
-	
-	
+	// Server
 	path = require('path'),
 	  lr = require('tiny-lr'),
 	  xp = require('express'),
@@ -24,10 +18,6 @@ var gulp = require('gulp'),
  wiredep = require('wiredep').stream;
 /*
 
-// Allows gulp --dev to be run for a more verbose output
-var isProduction = true;
-var sassStyle = 'compressed';
-var sourceMap = false;
 
 if(gutil.env.dev === true) {
 	sassStyle = 'expanded';
@@ -110,66 +100,6 @@ var Server = (function(){
 	
 })();
 
-	
-	// Task: Lint
-	gulp.task('lint', function() {
-	    return gulp.src(pathSrc.scripts)
-	        .pipe(jshint())
-	        .pipe(jshint.reporter('default'));
-	});
-
-
-	// Task: Scripts
-	gulp.task('scripts', function(){
-		return gulp.src(pathSrc.scripts)
-		   		   .pipe(_g.coffee())
-				   .pipe(_g.concat('all.js'))
-				   .pipe(gulp.dest('build/js'))
-				   .pipe(_g.uglify())
-				   .pipe(_g.rename('all.min.js'))
-				   .pipe(gulp.dest('build/js'))
-				   .on('error', gutl.log);
-	});
-
-	
-	//Task: Images
-	gulp.task('images:min', function() {
-	 	return gulp.src(pathSrc.images)
-				.pipe(_g.imagemin({optimizationLevel: 5}))
-				.pipe(gulp.dest('build/img'));
-	});
-
-
-	
-
-
-
-
-	// Task: Bower/wiredep
-	gulp.task('bower', function() {
-  		
-		gulp.src('client/css/*.css')
-			.pipe(wiredep({
-				directory: 'client/components',
-				ignorePath: 'client/components/'
-			}))
-        	.pipe(gulp.dest('build/css'));
-		
-		gulp.src('client/js/*.js')
-			.pipe(wiredep({
-				directory: 'client/components',
-				ignorePath: 'client/components/'
-			}))
-        	.pipe(gulp.dest('build/js'));
-
-    	gulp.src(pathSrc.html)
-			.pipe(wiredep({
-				directory: 'client/components',
-				ignorePath: 'client/'
-			}))
-        	.pipe(gulp.dest('build'));
-	});
-
 	// Task: Default
 	gulp.task('default', function(){
 		Server.start();
@@ -190,10 +120,15 @@ var Server = (function(){
 
 	// clean, lint, sass, script, watch 
 
+
+
 	// Task: Server start
     gulp.task('serve', function(){
 		Server.start();
 	});
+	function finalize(){
+		gulp.start('serve');
+	}
 
 	// Typical process of downloading something
 	gulp.task('download',['flush:temp'], function(){
@@ -227,9 +162,7 @@ var Server = (function(){
 			});
 	});
 
-	function finalize(){
-		gulp.start('serve');
-	}
+
 
 	//@TODO
 	// Use gulp-changed, gulp-bower-files/ wiredep

@@ -3,6 +3,13 @@ var gulp  = require('gulp'),
 	config = require('../config');
 
 /*
+	gulp.task('images:min', function() {
+	 	return gulp.src(pathSrc.images)
+				.pipe(_g.imagemin({optimizationLevel: 5}))
+				.pipe(gulp.dest('build/img'));
+	});*/
+
+/*
 	Sprite Generator
 */
 /*
