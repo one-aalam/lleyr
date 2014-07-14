@@ -8,6 +8,9 @@ e) Integrate Browsersync
 f) Per file watch https://github.com/floatdrop/gulp-watch
 g) Download packages with Bower: http://stackoverflow.com/questions/14779662/programmatically-install-with-bower
 h) Include bower files compilation https://www.npmjs.org/package/gulp-bower-files/
+i) Template file support for Markdown & Handlebars
+j) Stub API's
+k) Prevent pipe breaking caused by errors from gulp plugins https://www.npmjs.org/package/gulp-plumber 
 
 
 *CSS*
