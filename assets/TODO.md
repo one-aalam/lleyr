@@ -1,11 +1,13 @@
-*WORKFLOW*
-______________________
+Roadmap
+======================
 a) Integrate Liftoff
 b) Split gulp tasks
 c) Separate CLI and actual lib
 d) Write tests
 e) Integrate Browsersync
 f) Per file watch https://github.com/floatdrop/gulp-watch
+g) Download packages with Bower: http://stackoverflow.com/questions/14779662/programmatically-install-with-bower
+h) Include bower files compilation https://www.npmjs.org/package/gulp-bower-files/
 
 
 *CSS*
